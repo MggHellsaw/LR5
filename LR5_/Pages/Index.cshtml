@@ -1,0 +1,25 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<form method="post">
+    <div>
+        <label for="valueInput">Значення:</label>
+        <input type="text" id="valueInput" name="Value" />
+    </div>
+    <div>
+        <label for="dateInput">Дата та час:</label>
+        <input type="datetime-local" id="dateInput" name="ExpirationDateString" />
+    </div>
+    <div>
+        <label>Обрана дата та час:</label>
+        <span>@Model.ExpirationDate</span>
+    </div>
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <p class="text-danger">@TempData["ErrorMessage"]</p>
+    }
+    <button type="submit">Відправити</button>
+</form>
